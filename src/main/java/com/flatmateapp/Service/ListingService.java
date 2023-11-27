@@ -6,4 +6,5 @@ public interface ListingService {
 
     ListingDTO saveListing(ListingDTO listingDTO);
 
+    ListingDTO approvePropertyListing(Long propertyId);
 }
