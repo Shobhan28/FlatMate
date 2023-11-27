@@ -7,6 +7,8 @@ import com.flatmateapp.Service.ListingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ListingServiceImpl implements ListingService {
 
@@ -28,6 +30,22 @@ public class ListingServiceImpl implements ListingService {
         listingEntity.setStatus("pending");
         Listing savedListing = listingRepository.save(listingEntity);
         return mapToDto(savedListing);
+    }
+
+    @Override
+    public ListingDTO approvePropertyListing(Long listingId) {
+            Optional<Listing> optionalProperty = listingRepository.findById(listingId);
+
+            if (optionalProperty.isPresent()) {
+                Listing listing = optionalProperty.get();
+                listing.setStatus("approved");
+                listing = listingRepository.save(listing);
+                return mapToDto(listing);
+            } else {
+                // Handle property not found
+                // You can throw an exception or return null/empty, depending on your design
+                return null;
+            }
     }
 
     private Listing mapToEntity(ListingDTO listingDto) {
