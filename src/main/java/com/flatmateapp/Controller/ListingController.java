@@ -22,8 +22,9 @@ public class ListingController {
         return new ResponseEntity<>(savedListing, HttpStatus.CREATED);
     }
 
-    // You can add more CRUD endpoints or additional functionality as needed
-
+  //  When a PATCH request is made to a URL "/{propertyId}/approve", it triggers the approvePropertyListing method.
+  // This method, in turn, calls a service method (approvePropertyListing in listingService) to handle the approval logic
+  // and returns the result as a ResponseEntity<ListingDTO> with a 200 OK status.
     @PatchMapping("/{propertyId}/approve")
     public ResponseEntity<ListingDTO> approvePropertyListing(@PathVariable Long propertyId) {
         ListingDTO approvedListing = listingService.approvePropertyListing(propertyId);
