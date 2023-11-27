@@ -4,17 +4,13 @@ import com.flatmateapp.Payload.ListingDTO;
 import com.flatmateapp.Service.ListingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/listings")
 public class ListingController {
 
-
-    private final ListingService listingService;
+    private ListingService listingService;
 
     public ListingController(ListingService listingService) {
         this.listingService = listingService;
@@ -26,4 +22,11 @@ public class ListingController {
         return new ResponseEntity<>(savedListing, HttpStatus.CREATED);
     }
 
+    // You can add more CRUD endpoints or additional functionality as needed
+
+    @PatchMapping("/{propertyId}/approve")
+    public ResponseEntity<ListingDTO> approvePropertyListing(@PathVariable Long propertyId) {
+        ListingDTO approvedListing = listingService.approvePropertyListing(propertyId);
+        return new ResponseEntity<>(approvedListing, HttpStatus.OK);
+    }
 }
