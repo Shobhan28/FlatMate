@@ -1,5 +1,36 @@
 # FlatMate
 
+## Property Listing Module Documentation
+
+### Overview
+The Property Listing Module in the Flatmate project allows users to list their properties, flats, or rooms for sharing with potential tenants. This module facilitates the submission of property details and ensures a seamless process for users to showcase their available spaces.
+
+### Property Listing Workflow
+
+**User Registration/Login:**
+
+- To list a property, users must register or log in to their Flatmate accounts.
+
+**Property Details Submission:**
+
+- Users navigate to the "List Property" section of the platform.
+- They provide detailed information about their property, including location, type, size, amenities, and rental details.
+
+**Preview and Edit:**
+
+- Before submission, users can preview their property listing to ensure accuracy.
+- They can edit or update the details as needed.
+
+**Submission:**
+
+- Users submit their property listing, and the status is set to "Pending" for review.
+
+**Approval Process:**
+
+- The property undergoes review by the approval team or admin.
+- If approved, the property status is updated to "Approved," making it visible on the platform.
+
+  
 ## Approval Module Documentation
 
 **Overview**
